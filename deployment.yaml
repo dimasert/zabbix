@@ -52,14 +52,16 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
+    nodePort: 30080
     name: web-http
   - port: 443
     targetPort: 8443
+    nodePort: 30443
     name: web-https
   selector:
     name: zabbix-web
   sessionAffinity: None
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: v1
 kind: Service
